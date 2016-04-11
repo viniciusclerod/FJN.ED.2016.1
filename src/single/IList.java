@@ -1,3 +1,5 @@
+package single;
+
 public interface IList {
 	public void insertBegin(Node node);
 	public void insertEnd(Node node);

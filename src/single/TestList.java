@@ -1,6 +1,6 @@
-import java.util.Scanner;
+package single;
 
-import com.sun.corba.se.spi.orbutil.fsm.Input;
+import java.util.Scanner;
 
 
 public class TestList {
