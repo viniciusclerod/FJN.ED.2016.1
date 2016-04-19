@@ -1,10 +1,9 @@
-import single.*;
+package list.linear.twoway;
 
-public class DoubleList implements IList {
+public class List implements IList {
 
     private Node first = null;
     private Node last = null;
-
 
     @Override
     public void insertBegin(Node node) {
@@ -104,6 +103,42 @@ public class DoubleList implements IList {
     public void clearList() {
         first = null;
         last = null;
+    }
+
+    @Override
+    public void remove(int value) {
+        if (first!=null) {
+            if (first==last) {
+                if (first.getValue()==value) {
+                    first = null;
+                    last = null;
+                } else {
+                    // Não encontrado
+                }
+            } else {
+                Node aux = first;
+                while (aux!=last) {
+                    aux = aux.getNext();
+                    if (aux.getValue()==value) {
+                        if (aux==first) {
+                            first = aux.getNext();
+                        } else {
+                            aux.getPrev().setNext(aux.getNext());
+                        }
+                        if (aux==last) {
+                            last = aux.getPrev();
+                        } else {
+                            aux.getNext().setPrev(aux.getPrev());
+                        }
+                        aux.setPrev(null);
+                        aux.setNext(null);
+                        break;
+                    }
+                }
+            }
+        } else {
+            // Lista vazia
+        }
     }
 
     @Override

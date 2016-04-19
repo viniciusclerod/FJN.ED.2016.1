@@ -1,3 +1,5 @@
+package list.linear.twoway;
+
 public class Node {
     private Node prev = null;
     private int value;

@@ -1,4 +1,4 @@
-package single;
+package list.linear.oneway;
 
 import java.util.Scanner;
 

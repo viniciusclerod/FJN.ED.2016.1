@@ -1,15 +1,14 @@
-import single.*;
-import single.Node;
+package list.linear.twoway;
 
 import java.util.Scanner;
 
 
-public class TestDoubleList {
+public class TestList {
 
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		DoubleList list = new DoubleList();
+		List list = new List();
 		Node node;
 		boolean flag = true;
 		while (flag) {
@@ -20,7 +19,8 @@ public class TestDoubleList {
 			System.out.println(" 3 - Inserir no início da lista");
 			System.out.println(" 4 - Inserir no final da lista");
 			System.out.println(" 5 - Inserir ordenadamente");
-			System.out.println(" 6 - Verificar existência");
+			System.out.println(" 6 - Remover da lista");
+			System.out.println(" ? - Verificar existência");
 			switch (input.nextInt()) {
 				case 0:
 					flag = false;
@@ -30,28 +30,33 @@ public class TestDoubleList {
 					break;
 				case 2:
 					list.clearList();
-//				list.showList();
+					//list.showList();
 					break;
 				case 3:
 					System.out.print("Qual valor deseja inserir no inicio? ");
-					node = new single.Node();
+					node = new Node();
 					node.setValue(input.nextInt());
 					list.insertBegin(node);
-//				list.showList();
+					list.showList();
 					break;
 				case 4:
 					System.out.print("Qual valor deseja inserir do fim? ");
 					node = new Node();
 					node.setValue(input.nextInt());
 					list.insertEnd(node);
-//				list.showList();
+					//list.showList();
 					break;
 				case 5:
 					System.out.print("Qual valor deseja inserir ordenadamente? ");
 					node = new Node();
 					node.setValue(input.nextInt());
 					list.insertOrdered(node);
-//					list.showList();
+					//list.showList();
+					break;
+				case 6:
+					System.out.print("Qual valor deseja remover da lista? ");
+					list.remove(input.nextInt());
+					list.showList();
 					break;
 			default:
 				System.out.print("Opção inválida");
