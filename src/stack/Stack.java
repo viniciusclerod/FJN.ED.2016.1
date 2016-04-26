@@ -11,6 +11,14 @@ public class Stack implements IStack {
 
     @Override
     public Node find(int value) {
+        Node aux = top;
+        while(aux!=null) {
+            if(aux.getValue()==value) {
+                return aux;
+            } else {
+               aux = aux.getNext();
+            }
+        }
         return null;
     }
 
@@ -25,5 +33,18 @@ public class Stack implements IStack {
     @Override
     public void clear() {
         top = null;
+    }
+
+    @Override
+    public void list() {
+        if (top==null) {
+            System.out.println("Pilha vazia.");
+        } else {
+            Node aux = top;
+            while (aux != null) {
+                System.out.println(aux.getValue());
+                aux = aux.getNext();
+            }
+        }
     }
 }
