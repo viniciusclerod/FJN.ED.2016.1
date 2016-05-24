@@ -23,18 +23,30 @@ public class Tree implements ITree {
     }
 
     @Override
-    public void preOrder() {
-
+    public void listPreOrder() {
+    	if(root == null) {
+    		System.out.println("A árvore está vazia.");
+    	} else {
+    		preOrder(root);
+    	}
     }
 
     @Override
-    public void order() {
-
+    public void listOrder() {
+    	if(root == null) {
+    		System.out.println("A árvore está vazia.");
+    	} else {
+    		order(root);
+    	}
     }
 
-    @Override
-    public void posOrder() {
-
+	@Override
+    public void listPosOrder() {
+		if(root == null) {
+    		System.out.println("A árvore está vazia.");
+    	} else {
+    		posOrder(root);
+    	}
     }
 
     private void insert(Node parent, Node node) {
@@ -71,4 +83,28 @@ public class Tree implements ITree {
             }
         }
     }
+
+    private void preOrder(Node parent) {
+    	System.out.print(parent.getValue() + " ");
+		if(parent.getLeft() != null)
+			preOrder(parent.getLeft());
+		if (parent.getRight() != null) 
+			preOrder(parent.getRight());
+	}
+    
+    private void order(Node parent) {
+		if(parent.getLeft() != null)
+			order(parent.getLeft());
+		System.out.print(parent.getValue() + " ");
+		if (parent.getRight() != null) 
+			order(parent.getRight());
+	}
+    
+    private void posOrder(Node parent) {
+    	if(parent.getLeft() != null)
+			posOrder(parent.getLeft());
+		if (parent.getRight() != null) 
+			posOrder(parent.getRight());
+		System.out.print(parent.getValue() + " ");
+	}
 }
