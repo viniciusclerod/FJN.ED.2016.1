@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.Scanner;
+
 public class RunTree {
 
     public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class RunTree {
                 case 1:
                     System.out.println();
                     System.out.print("Informe o valor: ");
-                    node = new Node();
+                    Node node = new Node();
                     node.setValue(input.nextInt());
                     tree.push(node);
                     break;
@@ -35,7 +37,7 @@ public class RunTree {
                     if (result) {
                         System.out.println("Nó " + value + " removido da Árvore Binária.");
                     } else {
-                        System.out.println("Não removido da Árvore Binária.");
+                        System.out.println("Nó não encontrado na Árvore Binária.");
                     }
                     break;
                 case 3:
